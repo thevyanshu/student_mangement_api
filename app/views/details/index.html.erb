@@ -2,6 +2,7 @@
 
 <h1>Details</h1>
 
+<% if current_user %>
 <table>
   <thead>
     <tr>
@@ -19,13 +20,18 @@
         <td><%= detail.roll_no %></td>
         <td><%= detail.user_id %></td>
         <td><%= link_to 'Show', detail %></td>
+        <% if current_user && current_user.admin %>
         <td><%= link_to 'Edit', edit_detail_path(detail) %></td>
         <td><%= link_to 'Destroy', detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<% else %>
+<h3> Go back and login first</h3>
+<% end %>
 <br>
 
 <%= link_to 'New Detail', new_detail_path %>

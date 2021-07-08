@@ -1,0 +1,17 @@
+<p>
+  <strong>Department:</strong>
+  <%= @detail.department %>
+</p>
+
+<p>
+  <strong>Roll no:</strong>
+  <%= @detail.roll_no %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @detail.user.email %>
+</p>
+
+<%= link_to 'Edit', edit_detail_path(@detail) %> |
+<%= link_to 'Back', details_path %>

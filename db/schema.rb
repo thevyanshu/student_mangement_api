@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_08_120853) do
+ActiveRecord::Schema.define(version: 2021_07_12_110918) do
+
+  create_table "departments", force: :cascade do |t|
+    t.string "d_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "details", force: :cascade do |t|
     t.text "department"
@@ -19,6 +25,36 @@ ActiveRecord::Schema.define(version: 2021_07_08_120853) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_details_on_user_id"
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "name"
+    t.string "roll_no"
+    t.string "email"
+    t.integer "department_id", null: false
+    t.integer "subject_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["department_id"], name: "index_students_on_department_id"
+    t.index ["subject_id"], name: "index_students_on_subject_id"
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "s_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "teachers", force: :cascade do |t|
+    t.string "name"
+    t.string "e_no"
+    t.string "email"
+    t.integer "department_id", null: false
+    t.integer "subject_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["department_id"], name: "index_teachers_on_department_id"
+    t.index ["subject_id"], name: "index_teachers_on_subject_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -35,4 +71,8 @@ ActiveRecord::Schema.define(version: 2021_07_08_120853) do
   end
 
   add_foreign_key "details", "users"
+  add_foreign_key "students", "departments"
+  add_foreign_key "students", "subjects"
+  add_foreign_key "teachers", "departments"
+  add_foreign_key "teachers", "subjects"
 end

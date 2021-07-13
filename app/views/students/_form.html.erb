@@ -1,0 +1,30 @@
+<%= simple_form_for @student do |f| %>
+<% if student.errors.any? %>
+    <div id="error_explanation">
+    <h2><%= pluralize(student.errors.count, "error") %> prohibited this detail from being saved:</h2>
+
+    <ul>
+        <% student.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+        <% end %>
+    </ul>
+    </div>
+<% end %>
+
+<%= f.input :name %>
+
+<%= f.input :roll_no %>
+
+<%= f.input :email %>
+
+    <%= f.simple_fields_for :department, Department.new do |d| %>
+        <%= d.input :d_id, label: 'Department'%>
+    <% end %>
+
+    <%= f.simple_fields_for :subjects, Subject.new do |s| %>
+        <%= s.input :s_id, label: 'Subject' %>
+    <% end %>
+
+<%= f.button :submit %>
+
+<% end %>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :details
+  resources :details, :students, :departments
+  
   get 'profile/home'
   root to: 'profile#home'
   devise_for :users

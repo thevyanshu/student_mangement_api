@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-    before_action :set_detail, only: %i[ show edit update destroy ]
+    before_action :set_student, only: %i[ show edit update destroy ]
     before_action :authenticate_user!, except: [:show, :index]
 
     def index
@@ -7,8 +7,10 @@ class StudentsController < ApplicationController
     end
 
     def show
+        @department = Department.find(@student.department_id)
+        @subject = Subject.where("department_id = #{@department.id}")
     end
-
+    
     def new
         @student = Student.new
     end
@@ -47,7 +49,7 @@ class StudentsController < ApplicationController
     def destroy
         @student.destroy
         respond_to do |format|
-        format.html { redirect_to details_url, notice: "Student was successfully destroyed." }
+        format.html { redirect_to students_url, notice: "Student was successfully destroyed." }
         format.json { head :no_content }
         end
     end
@@ -60,7 +62,6 @@ class StudentsController < ApplicationController
 
         # Only allow a list of trusted parameters through.
         def student_params
-        params.require(:student).permit(:roll_no, :name, :email, department_attributes: [ :d_id ], subjects_attributes: [ :s_id ] )
+        params.require(:student).permit(:roll_no, :name, :department_id )
         end
-
 end

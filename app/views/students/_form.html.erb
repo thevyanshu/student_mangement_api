@@ -1,30 +1,14 @@
-<%= simple_form_for @student do |f| %>
-<% if student.errors.any? %>
-    <div id="error_explanation">
-    <h2><%= pluralize(student.errors.count, "error") %> prohibited this detail from being saved:</h2>
+<div style="width: 50%; margin: auto; padding: 10px">
+<%= simple_form_for @student, :html => { :class => 'form-horizontal' } do |f| %>
 
-    <ul>
-        <% student.errors.each do |error| %>
-        <li><%= error.full_message %></li>
-        <% end %>
-    </ul>
-    </div>
+    
+  <%= f.input :name %>
+  
+  <%= f.input :roll_no %>
+  <%= f.input :department_id, as: :radio_buttons, collection: [['1', 'CSE'], ['2', 'IT'], ['3', 'ME'], ['4', 'CE']], label_method: :second, value_method: :first %>
+  
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                students_path, :class => 'btn btn-default' %>
 <% end %>
-
-<%= f.input :name %>
-
-<%= f.input :roll_no %>
-
-<%= f.input :email %>
-
-    <%= f.simple_fields_for :department, Department.new do |d| %>
-        <%= d.input :d_id, label: 'Department'%>
-    <% end %>
-
-    <%= f.simple_fields_for :subjects, Subject.new do |s| %>
-        <%= s.input :s_id, label: 'Subject' %>
-    <% end %>
-
-<%= f.button :submit %>
-
-<% end %>
+</div>

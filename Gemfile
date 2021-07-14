@@ -8,6 +8,8 @@ gem 'simple_form'
 gem 'bootstrap', '~> 5.0.1'
 gem 'jquery-rails'
 gem 'will_paginate-bootstrap'
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4'

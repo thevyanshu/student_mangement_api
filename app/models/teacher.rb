@@ -1,4 +1,3 @@
 class Teacher < ApplicationRecord
-    has_many :students
-    has_one :subject
+    has_many :subjects
 end

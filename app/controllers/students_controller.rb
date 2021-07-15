@@ -65,3 +65,4 @@ class StudentsController < ApplicationController
         params.require(:student).permit(:roll_no, :name, :department_id )
         end
 end
+

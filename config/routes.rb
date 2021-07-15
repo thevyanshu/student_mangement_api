@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :details, :students, :departments
+  resources :details, :students, :departments, :teachers
   
   get 'profile/home'
   root to: 'profile#home'

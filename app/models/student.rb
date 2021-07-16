@@ -1,5 +1,5 @@
 class Student < ApplicationRecord
-    has_one :department
+    belongs_to :department
     has_many :subjects, through: :department
 
     accepts_nested_attributes_for :department, :subjects

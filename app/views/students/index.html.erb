@@ -5,7 +5,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <!-- <th><%= model_class.human_attribute_name(:id) %></th> -->
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:roll_no) %></th>
       <th><%= model_class.human_attribute_name(:department_id) %></th>
@@ -20,7 +19,7 @@
         <td><%= student.name %></td>
         <td><%= student.roll_no %></td>
         <td><%= student.department_id %></td>
-        <td><%=l student.created_at %></td>
+        <td><%= student.created_at.try(:strftime, ("%d %B, %Y at %l %p")) %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       student_path(student), :class => 'btn btn-default btn-xs' %>

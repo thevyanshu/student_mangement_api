@@ -7,7 +7,7 @@
   <%= f.input :id_number %>
   <%= f.input :subject_id, as: :radio_buttons, collection: [['1', 'OS'], ['2', 'MATHS']], label_method: :second, value_method: :first %>
   
-  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= f.button :submit, :class => 'btn-primary', data: { disable_with: false } %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 teachers_path, :class => 'btn btn-default' %>
 <% end %>

@@ -20,7 +20,7 @@
         <td><%= teacher.name %></td>
         <td><%= teacher.id_number %></td>
         <td><%= teacher.subject_id %></td>
-        <td><%=l teacher.created_at %></td>
+        <td><%= teacher.created_at.try(:strftime, ("%d %B, %Y at %l %p")) %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       teacher_path(teacher), :class => 'btn btn-default btn-xs' %>

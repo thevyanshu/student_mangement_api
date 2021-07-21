@@ -3,7 +3,7 @@ class StudentsController < ApplicationController
     before_action :authenticate_user!, except: [:show, :index]
 
     def index
-        @students = Student.all
+        @students = Student.all.paginate(page: params[page], per_page: 15)
         @departments = Department.all
     end
 

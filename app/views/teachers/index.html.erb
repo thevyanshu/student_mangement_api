@@ -43,3 +43,5 @@
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               profile_home_path, :class => 'btn btn-default'  %>
+
+<%= will_paginate @teachers %>

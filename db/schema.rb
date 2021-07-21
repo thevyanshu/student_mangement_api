@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_16_102343) do
+ActiveRecord::Schema.define(version: 2021_07_21_120711) do
 
   create_table "departments", force: :cascade do |t|
     t.string "d_name"
@@ -44,6 +44,16 @@ ActiveRecord::Schema.define(version: 2021_07_16_102343) do
     t.index ["subject_id"], name: "index_teachers_on_subject_id"
   end
 
+  create_table "user_aspects", force: :cascade do |t|
+    t.string "aspect_type"
+    t.integer "aspect_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["aspect_type", "aspect_id"], name: "index_user_aspects_on_aspect"
+    t.index ["user_id"], name: "index_user_aspects_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -60,4 +70,5 @@ ActiveRecord::Schema.define(version: 2021_07_16_102343) do
   add_foreign_key "students", "departments"
   add_foreign_key "subjects", "departments"
   add_foreign_key "teachers", "subjects"
+  add_foreign_key "user_aspects", "users"
 end

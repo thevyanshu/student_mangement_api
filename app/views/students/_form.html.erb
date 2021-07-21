@@ -2,8 +2,6 @@
 <%= simple_form_for @student, :html => { :class => 'form-horizontal' } do |f| %>
 
   <%= f.input :name %>
-  
-  <%= f.input :roll_no %>
 
   <% collections = []
   @department = Department.all %>
@@ -17,5 +15,6 @@
 
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 students_path, :class => 'btn btn-default' %>
+                
 <% end %>
 </div>

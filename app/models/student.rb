@@ -1,4 +1,5 @@
 class Student < ApplicationRecord
+    before_create :set_roll_no
     belongs_to :department
     has_many :subjects, through: :department
     

@@ -8,7 +8,7 @@
   <% collections = []
   @department = Department.all %>
   <% @department.each do |d| %>
-    <% collections << ['#{d.Department_id}', d.d_name] %>
+    <% collections << ["#{d.id}", d.d_name] %>
   <% end %>
 
   <%= f.input :department_id, as: :radio_buttons, collection: collections, label_method: :second, value_method: :first %>

@@ -3,8 +3,7 @@ class Student < ApplicationRecord
     belongs_to :department
     has_many :subjects, through: :department
     
-    has_one :user_aspect, as: :aspect
-    has_one :user, through: :user_aspect
+    has_one :user, as: :aspect
 
     self.per_page = 5
     

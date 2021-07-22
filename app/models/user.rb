@@ -4,6 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  has_many :user_aspects
-  has_many :aspects, through: :user_aspects
+  belongs_to :aspect, polymorphic: true
 end

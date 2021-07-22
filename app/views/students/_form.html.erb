@@ -10,6 +10,7 @@
   <% end %>
 
   <%= f.input :department_id, as: :radio_buttons, collection: collections, label_method: :second, value_method: :first %>
+  <%= f.file_field :avatar, lable: "Profile Picture" %>>
   
   <%= f.button :submit, :class => 'btn-primary', data: { disable_by: "Saving" } %>
 

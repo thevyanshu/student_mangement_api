@@ -5,6 +5,8 @@ class Student < ApplicationRecord
     
     has_one :user, as: :aspect
 
+    has_one_attached :avatar
+
     self.per_page = 5
     
     def set_roll_no
@@ -14,3 +16,4 @@ class Student < ApplicationRecord
 
     accepts_nested_attributes_for :department, :subjects
 end
+

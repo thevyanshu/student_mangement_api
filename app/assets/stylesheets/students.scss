@@ -1,3 +1,48 @@
 // Place all the styles related to the Students controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+div.form-check:nth-child(3) {
+ padding-top: 30px;
+}
+
+#student_avatar {
+ margin-left: -20px;
+ margin-bottom: 20px;
+}
+
+input.btn {
+ margin-left: -20px;
+}
+
+.previous_page {
+ margin-left: 1100px;
+}
+
+.dl-horizontal > dd:nth-child(10) > img:nth-child(1) {
+ margin-left: 200px;
+ margin-top: -100px;
+}
+
+.dl-horizontal {
+ margin-left: 450px;
+}
+
+a.btn:nth-child(6) {
+ margin-left: 550px;
+ margin-top: 20px;
+}
+
+a.btn:nth-child(7) {
+ margin-top: 20px;
+}
+
+a.btn:nth-child(8) {
+ margin-top: 20px;
+}
+
+.dl-horizontal > dd:nth-child(9) > img:nth-child(1) {
+ margin-left: 150px;
+ margin-top: -120px;
+}
+

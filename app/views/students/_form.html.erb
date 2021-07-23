@@ -1,4 +1,4 @@
-<div style="width: 50%; margin: auto; padding: 10px">
+<div class ="jumbotron" style="width: 50%; margin: auto;">
 <%= simple_form_for @student, :html => { :class => 'form-horizontal' } do |f| %>
 
   <%= f.input :name %>
@@ -8,9 +8,8 @@
   <% @department.each do |d| %>
     <% collections << ["#{d.id}", d.d_name] %>
   <% end %>
-
-  <%= f.input :department_id, as: :radio_buttons, collection: collections, label_method: :second, value_method: :first %>
-  <%= f.file_field :avatar, lable: "Profile Picture" %>>
+  <%= f.input :department_id, as: :radio_buttons, collection: collections, label_method: :second, value_method: :first, class: 'col-lg-4 form-control' %>
+  <%= f.file_field :avatar, class: 'col-lg-4 form-control'  %>
   
   <%= f.button :submit, :class => 'btn-primary', data: { disable_by: "Saving" } %>
 

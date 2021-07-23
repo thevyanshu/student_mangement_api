@@ -37,6 +37,7 @@
   </tbody>
 </table>
 
+<div class = "navigation_pagination">
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_teacher_path,
             :class => 'btn btn-primary' %>
@@ -45,3 +46,4 @@
               profile_home_path, :class => 'btn btn-default'  %>
 
 <%= will_paginate @teachers %>
+</div>

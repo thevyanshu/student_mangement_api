@@ -1,14 +1,12 @@
-
-
-<div class="jumbotron" >
-<h1>Profile#home</h1>
+<div class="jumbotron text-center" >
+<h1 style="font-size: 40px;">Student Management System</h1>
 
 <% if current_user %>
 
     <% if current_user.admin == true %>
 
-    <%= link_to 'Students', students_path %>
-    <%= link_to 'Teachers', teachers_path %>
+    <p><%= link_to 'Students', students_path %>
+        <%= link_to 'Teachers', teachers_path %></p>
     <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
 
     <% elsif current_user.admin == false && current_user.aspect_type == "Student" %>

@@ -15,7 +15,7 @@
         <%= s.sub %>
       <% end %>
   </dd>
-  <dd><%= image_tag @student.avatar %></dd>
+  <dd><%= image_tag @student.avatar.variant(resize_to_limit: [100, 100]) %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

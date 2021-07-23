@@ -1,15 +1,26 @@
 
+
 <div class="jumbotron" >
 <h1>Profile#home</h1>
 
 <% if current_user %>
 
-<%= link_to 'Students', students_path %>
-<%= link_to 'Teachers', teachers_path %>
-<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+    <% if current_user.admin == true %>
+
+    <%= link_to 'Students', students_path %>
+    <%= link_to 'Teachers', teachers_path %>
+    <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+
+    <% elsif current_user.admin == false && current_user.aspect_type == "Student" %>
+    <%= link_to 'Students', students_path %>
+    <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+
+    <% elsif current_user.admin == false && current_user.aspect_type == "Teacher" %>
+    <%= link_to 'Teachers', teachers_path %>
+    <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+    <% end %>
 
 <% else %>
-<%= link_to 'Sign up', new_user_registration_path %>
 
 <%= link_to 'Sign in', new_user_session_path %>
 

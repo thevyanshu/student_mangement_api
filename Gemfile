@@ -7,7 +7,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'bootstrap', '~> 5.0.1'
 gem 'jquery-rails'
-gem 'will_paginate-bootstrap'
+gem 'will_paginate', '~>3.1.0'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'

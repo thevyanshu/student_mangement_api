@@ -2,20 +2,20 @@
 <%= simple_form_for @student, :html => { :class => 'form-horizontal' } do |f| %>
 
   <%= f.input :name %>
-  
-  <%= f.input :roll_no %>
 
   <% collections = []
   @department = Department.all %>
   <% @department.each do |d| %>
-    <% collections << ['#{d.Department_id}', d.d_name] %>
+    <% collections << ["#{d.id}", d.d_name] %>
   <% end %>
 
   <%= f.input :department_id, as: :radio_buttons, collection: collections, label_method: :second, value_method: :first %>
+  <%= f.file_field :avatar, lable: "Profile Picture" %>>
   
   <%= f.button :submit, :class => 'btn-primary', data: { disable_by: "Saving" } %>
 
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 students_path, :class => 'btn btn-default' %>
+                
 <% end %>
 </div>

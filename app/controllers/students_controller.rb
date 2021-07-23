@@ -3,7 +3,7 @@ class StudentsController < ApplicationController
     before_action :authenticate_user!, except: [:show, :index]
 
     def index
-        @students = Student.all
+        @students = Student.all.order(updated_at: :desc).paginate(page: params[:page])
         @departments = Department.all
     end
 
@@ -67,7 +67,7 @@ class StudentsController < ApplicationController
 
         # Only allow a list of trusted parameters through.
         def student_params
-        params.require(:student).permit(:roll_no, :name, :department_id )
+        params.require(:student).permit(:roll_no, :name, :department_id, :avatar)
         end
 end
 

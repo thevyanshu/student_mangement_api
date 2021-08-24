@@ -12,6 +12,7 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'image_processing'
 gem 'github-markup', '~> 4.0'
 gem 'vips', '~> 8.6', '>= 8.6.3.1'
+gem 'active_model_serializers', '~> 0.10.12'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4'

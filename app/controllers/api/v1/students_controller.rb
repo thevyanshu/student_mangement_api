@@ -9,12 +9,11 @@ class Api::V1::StudentsController < ApplicationController
     end
 
     def show
-        render json: @student 
+        if stale?(last_modified: @student.updated_at)
+            render json: @student
+        end 
     end
     
-    def edit
-    end
-
     
     def create
         @student = Student.new(student_params)

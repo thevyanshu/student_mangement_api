@@ -9,7 +9,9 @@ class Api::V1::DepartmentsController < ApplicationController
 
   # GET /departments/1
   def show
-    render json: @department
+    if stale?(last_modified: @department.updated_at)
+      render json: @department
+    end
   end
 
   # POST /departments

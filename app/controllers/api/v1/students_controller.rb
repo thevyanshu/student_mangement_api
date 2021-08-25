@@ -3,12 +3,12 @@ class Api::V1::StudentsController < ApplicationController
     before_action :authenticate_user!, except: [:show, :index]
 
     def index
-        @students = Student.where("department_id = #{:department_id}")
+        @departments = Department.find(params[:department_id])
+        @students = Student.where(department_id: @departments.id)
         render json: @students
     end
 
     def show
-        @students = Student.where("department_id = #{:department_id}")
         render json: @student 
     end
     
@@ -49,7 +49,7 @@ class Api::V1::StudentsController < ApplicationController
         end
         # Only allow a list of trusted parameters through.
         def student_params
-        params.require(:student).permit(:roll_no, :name, :department_id)
+            params.require(:student).permit(:roll_no, :name, :department_id)
         end
 end
 

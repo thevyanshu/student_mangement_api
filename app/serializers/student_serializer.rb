@@ -1,4 +1,4 @@
-class BandSerializer < ActiveModel::Serializer
-  attributes :id, :name
+class StudentSerializer < ActiveModel::Serializer
+  attributes :name
   belongs_to :department
 end

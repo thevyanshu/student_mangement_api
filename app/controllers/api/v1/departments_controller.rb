@@ -1,5 +1,5 @@
 class Api::V1::DepartmentsController < ApplicationController
-    before_action :set_department, only: [:show, :update, :destroy]
+    before_action :set_department, only: [:show, :update, :destroy, :students_count]
 
   def index
     @departments = Department.all
@@ -12,6 +12,10 @@ class Api::V1::DepartmentsController < ApplicationController
     if stale?(last_modified: @department.updated_at)
       render json: @department
     end
+  end
+
+  def students_count
+    render json: {id: @department.id, department_name: @department.d_name, students: @department.students.size}
   end
 
   # POST /departments
